@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/mononoki_regular_28.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/mononoki_regular_16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Room.gd" type="Script" id=3]
+
+[node name="Room" type="PanelContainer"]
+rect_min_size = Vector2( 200, 200 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 193.0
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 186.0
+margin_bottom = 186.0
+
+[node name="RoomName" type="Label" parent="MarginContainer/Rows"]
+margin_right = 186.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Room Name"
+align = 1
+autowrap = true
+
+[node name="RoomDescription" type="Label" parent="MarginContainer/Rows"]
+margin_top = 36.0
+margin_right = 186.0
+margin_bottom = 99.0
+custom_fonts/font = ExtResource( 2 )
+text = "Room Description of this place that I am not aware exists"
+autowrap = true

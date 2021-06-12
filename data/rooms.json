@@ -1,0 +1,32 @@
+{
+	"0":{
+		"name" : "Lab",
+		"description" : "You are in some kind of laboratory facility, a door leads to a corridor",
+		"directions":{
+			"north": 1,
+			"west": 2,
+		}
+	},
+	"1":{
+		"id" : 1,
+		"name" : "corridor",
+		"description" : "There is a big door in front of you at the end of the corridor, a few rats are running away from you",
+		"directions":{
+			"north": 5, 
+			"west": 3,
+			"east":4,
+			"south":0
+		}
+	},
+	"2":{
+		"id" : 2,
+		"name" : "morgue",
+		"description" : "This place has many corpses of people who recently died",
+		"directions":{
+			"north": 3, 
+			"west": 3,
+			"east":0
+		}
+	}
+}
+
