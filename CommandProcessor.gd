@@ -23,14 +23,16 @@ func process_command(input: String) -> String:
 	if words.size() > 1:
 		second_word = words[1].to_lower()
 	match first_words:
-		"go":
+		"ir":
 			return go(second_word)
-		"look":
+		"mirar":
 			return look()
-		"exit":
+		"salir":
 			exit()
 			return "Exiting game"
-		"help":
+		"investigar":
+			return check()
+		"ayuda":
 			return help()
 		_:
 			return "Unrecognized command, try again"
@@ -39,15 +41,18 @@ func process_command(input: String) -> String:
 func go(location):
 	if location == "":
 		return "Go where?"
-	return "Yo go %s" % location
+
+	return "You are going to: %s" % location
 
 
 func look():
 	return "You are looking"
 
+func check():
+	pass
 
 func help():
-	return "Input any of the commands above"
+	return "You can use these commands: \nhelp, go [location/direction], look, check, exit"
 
 
 func exit():
@@ -56,6 +61,6 @@ func exit():
 
 func change_room(new_room: Room):
 	curr_location = new_room
-	emit_signal("response_generated", "You go to" + new_room.room_name)
-	print(emit_signal("response_generated", "You go to" + new_room.room_name))
+	emit_signal("response_generated", "You go to " + new_room.room_name)
+	emit_signal("response_generated", new_room.room_description)
 	print(new_room.room_name)

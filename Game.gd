@@ -1,5 +1,7 @@
 extends Control
 
+
+const Response = preload("res://OutputResponse.tscn")
 const InputResponse = preload("res://InputResponse.tscn")
 
 # Amount of lines to store on history 
@@ -25,21 +27,21 @@ var room_descriptions = {
 	room = "There is an old bed, an aluminum plate and some fragile medical equipment"
 }
 
-
 var curr_location = null
 var max_scroll_lenght := 0
 
-
-
-
 func _ready() -> void:
-	location_label.text = "Location: ???"
+	location_label.text = "Locación: ???"
 	max_scroll_lenght = scrollbar.max_value
 	scrollbar.connect("changed",self,"handle_scrollbar_change")
-	command_proc.connect("response_done",self,"handle_response_generated")
+	command_proc.connect("response_generated",self,"handle_response_generated")
+#	var starting_message = Response.instance()
+#	starting_message.bbcode_text = "Universidad de Guadalajara \nMatematicas Discretas \n\nTitulo de Juego \n\nplay - Iniciar juego \nayuda - ver explicación de comandos y mas \n"
+#	add_response_to_game(starting_message)
+	
+	
 	
 	command_proc.initialize(room_man.get_child(0))
-
 
 
 func update_location(location):
@@ -53,27 +55,32 @@ func get_description() -> String:
 
 
 func handle_response_generated(response_text):
-	var response = InputResponse.instance()
+	var response = Response.instance()
+	response.bbcode_text = response_text
 	history_rows.add_child(response)
+	response.animate_text()
 	print("Signal received")
-	response.response.bbcode_text  = response_text
+
+	add_response_to_game(response_text)
 
 
 func _on_Input_text_entered(new_text: String) -> void:
-
 	if new_text.strip_edges(true,true) == "":
 		return
 	var input_response = InputResponse.instance()
-	# var response = get_response(new_text)
 	var response = command_proc.process_command(new_text)
-	history_rows.add_child(input_response)
-	input_response.input.text = new_text
-	input_response.input.visible = true
-	input_response.response.bbcode_text = response
-	input_response._start()
+	add_response_to_game(input_response)
+	input_response.set_text(new_text, response)
 
+
+
+
+func add_response_to_game(response: Control):
+	history_rows.add_child(response)
 	# Call function to limit the scrollback history size
 	limit_scrollback()
+	
+
 
 func limit_scrollback():
 	if history_rows.get_child_count() > max_scrollback:
@@ -91,33 +98,33 @@ func handle_scrollbar_change():
 	pass
 
 
-func get_response(input: String) -> String:
-	var response = ""
-	var commands = ["look","go","check"]
-	input = input.to_lower()
-	if input == "look":
-		update_location(curr_location)
-		response = get_description()
-	elif "go" in input:
-		if curr_location.to_lower() in input:
-			response = "You already are in " + curr_location
-		else:
-			for room in room_list:
-				if room.to_lower() in input:
-					update_location(room)
-					response = "You have entered to " + curr_location
-					break
-				else:
-					response = "You need to input a valid location"
-	elif input == "check":
-		response = "checking"
-	elif input.to_lower() == "clear":
-		for children in history_rows.get_children():
-			children.queue_free()
-		response = "History deleted"
-	elif input.to_lower() == "exit":
-		response = "Finishing process..."
-		
-	else:
-		response = "You did nothing"
-	return response
+#func get_response(input: String) -> String:
+#	var response = ""
+#	var commands = ["look","go","check"]
+#	input = input.to_lower()
+#	if input == "look":
+#		update_location(curr_location)
+#		response = get_description()
+#	elif "go" in input:
+#		if curr_location.to_lower() in input:
+#			response = "You already are in " + curr_location
+#		else:
+#			for room in room_list:
+#				if room.to_lower() in input:
+#					update_location(room)
+#					response = "You have entered to " + curr_location
+#					break
+#				else:
+#					response = "You need to input a valid location"
+#	elif input == "check":
+#		response = "checking"
+#	elif input.to_lower() == "clear":
+#		for children in history_rows.get_children():
+#			children.queue_free()
+#		response = "History deleted"
+#	elif input.to_lower() == "exit":
+#		response = "Finishing process..."
+#
+#	else:
+#		response = "You did nothing"
+#	return response

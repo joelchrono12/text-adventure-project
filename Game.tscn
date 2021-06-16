@@ -109,18 +109,18 @@ margin_bottom = 28.0
 custom_constants/separation = 50
 
 [node name="List of commands" type="Label" parent="PanelBackground/MarginContainer/Rows/GUI/GUI"]
-margin_right = 432.0
+margin_right = 510.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 4 )
-text = "Commands:  look |  go |  check"
+text = "Comandos:  mirar |  ir |  investigar"
 align = 1
 
 [node name="Location" type="Label" parent="PanelBackground/MarginContainer/Rows/GUI/GUI"]
-margin_left = 482.0
-margin_right = 639.0
+margin_left = 560.0
+margin_right = 717.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 4 )
-text = " Location: "
+text = " Locación: "
 
 [node name="GameInfo" type="PanelContainer" parent="PanelBackground/MarginContainer/Rows"]
 margin_top = 48.0
@@ -190,11 +190,12 @@ script = ExtResource( 6 )
 [node name="RoomManager" type="Node" parent="."]
 
 [node name="House Room" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 14.2705
-margin_top = -292.545
-margin_right = 214.27
-margin_bottom = -92.5449
-room_name = "House Room"
-room_description = " This is your house where you have lived for centuries"
+margin_left = 16.2705
+margin_top = -293.545
+margin_right = 216.271
+margin_bottom = -93.5449
+room_name = "Menu Principal"
+room_description = "Eso es \\n genail \\n asdfasdf"
+
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" method="_on_Input_text_entered"]
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="." method="_on_Input_text_entered"]

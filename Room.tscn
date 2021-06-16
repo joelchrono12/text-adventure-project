@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://fonts/mononoki_regular_28.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/mononoki_regular_24.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/mononoki_regular_16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Room.gd" type="Script" id=3]
 
@@ -21,18 +21,21 @@ margin_bottom = 193.0
 margin_right = 186.0
 margin_bottom = 186.0
 
-[node name="RoomName" type="Label" parent="MarginContainer/Rows"]
+[node name="RoomName" type="RichTextLabel" parent="MarginContainer/Rows"]
 margin_right = 186.0
-margin_bottom = 32.0
-custom_fonts/font = ExtResource( 1 )
+margin_bottom = 29.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Room Name"
 text = "Room Name"
-align = 1
-autowrap = true
+fit_content_height = true
 
-[node name="RoomDescription" type="Label" parent="MarginContainer/Rows"]
-margin_top = 36.0
+[node name="RoomDescription" type="RichTextLabel" parent="MarginContainer/Rows"]
+margin_top = 33.0
 margin_right = 186.0
-margin_bottom = 99.0
-custom_fonts/font = ExtResource( 2 )
-text = "Room Description of this place that I am not aware exists"
-autowrap = true
+margin_bottom = 73.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Room description to have"
+text = "Room description to have"
+fit_content_height = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fonts/mononoki_regular_28.tres" type="DynamicFont" id=1]
+[ext_resource path="res://OutputResponse.gd" type="Script" id=2]
 
 [node name="OutputResponse" type="RichTextLabel"]
 margin_top = 32.0
@@ -15,3 +16,9 @@ visible_characters = 0
 percent_visible = 0.0
 fit_content_height = true
 scroll_active = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
