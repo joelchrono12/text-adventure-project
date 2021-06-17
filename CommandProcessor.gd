@@ -1,17 +1,15 @@
 extends Node
 
-signal response_generated(response_text)
+signal changed_location(location)
 
 onready var parent = get_parent()
 func _ready() -> void:
 	pass
 
-var curr_location = null
+var curr_location: Room
 
-func initialize(starting_room):
-	curr_location = starting_room
-	print(starting_room)
-	change_room(starting_room)
+func initialize(starting_room) -> String:
+	return change_room(starting_room)
 
 
 func process_command(input: String) -> String:
@@ -40,11 +38,19 @@ func process_command(input: String) -> String:
 
 func go(location):
 	if location == "":
-		return "Go where?"
+		return "Ir a donde?"
+	
+	if curr_location.exits.keys().has(location):
+		var change_response = change_room(curr_location.exits[location])
+		
+		return PoolStringArray([
+			"Te dirigiste al %s" % location,
+			change_response
+		]).join("\n")
 
-	return "You are going to: %s" % location
-
-
+	else:
+		return "Salida no valida!"
+ 
 func look():
 	return "You are looking"
 
@@ -59,8 +65,14 @@ func exit():
 	yield(get_tree().create_timer(1),"timeout")
 	get_tree().quit()	
 
-func change_room(new_room: Room):
+func change_room(new_room: Room) -> String:
 	curr_location = new_room
-	emit_signal("response_generated", "You go to " + new_room.room_name)
-	emit_signal("response_generated", new_room.room_description)
-	print(new_room.room_name)
+	var exits_strings = PoolStringArray(new_room.exits.keys()).join(" ")
+	var messages = PoolStringArray([
+		"Ahora estas en " + new_room.room_name +", es " + new_room.room_description,
+		"Rutas: " + exits_strings
+	]).join("\n")
+	emit_signal("changed_location", new_room.room_name)
+	return messages
+
+#	print(new_room.room_name)

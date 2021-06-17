@@ -10,6 +10,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+room_name = "Room Description"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 7.0
@@ -23,19 +24,19 @@ margin_bottom = 186.0
 
 [node name="RoomName" type="RichTextLabel" parent="MarginContainer/Rows"]
 margin_right = 186.0
-margin_bottom = 29.0
+margin_bottom = 58.0
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "Room Name"
-text = "Room Name"
+bbcode_text = "Room Description"
+text = "Room Description"
 fit_content_height = true
 
 [node name="RoomDescription" type="RichTextLabel" parent="MarginContainer/Rows"]
-margin_top = 33.0
+margin_top = 62.0
 margin_right = 186.0
-margin_bottom = 73.0
+margin_bottom = 82.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Room description to have"
-text = "Room description to have"
+bbcode_text = "Room Description"
+text = "Room Description"
 fit_content_height = true
