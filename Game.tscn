@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Input.gd" type="Script" id=1]
+[ext_resource path="res://input/Input.gd" type="Script" id=1]
 [ext_resource path="res://fonts/mononoki_regular_28.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://fonts/mononoki_regular_24.tres" type="DynamicFont" id=4]
-[ext_resource path="res://whitesquare.png" type="Texture" id=5]
+[ext_resource path="res://Player.gd" type="Script" id=5]
 [ext_resource path="res://CommandProcessor.gd" type="Script" id=6]
-[ext_resource path="res://Room.tscn" type="PackedScene" id=7]
-[ext_resource path="res://RoomManager.gd" type="Script" id=8]
+[ext_resource path="res://rooms/Room.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rooms/RoomManager.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.180392, 0.203922, 0.25098, 1 )
@@ -68,6 +68,9 @@ void fragment() {
 shader = SubResource( 7 )
 shader_param/scan_line_count = 0.5
 
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+
 [node name="Game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -75,6 +78,39 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="RoomManager" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Sala" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 16.2705
+margin_top = -293.545
+margin_right = 216.271
+margin_bottom = -93.5449
+room_name = "una sala"
+room_description = "algo pequeña, un par de muebles alrededor de una vieja tv, no tiene señal"
+
+[node name="Patio" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 275.834
+margin_top = -293.378
+margin_right = 475.834
+margin_bottom = -93.3774
+room_name = "un patio"
+room_description = "muy descuidado, la hierba ha crecido mucho pero tiene una senda clara"
+
+[node name="Bodega" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 283.843
+margin_top = -548.332
+margin_right = 483.843
+margin_bottom = -348.332
+room_name = "una bodeja"
+room_description = "algo humeda,  un cuarto viejo para almacenar triques,, una luz tenue ilumina el lugar"
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
 anchor_right = 1.0
@@ -179,33 +215,11 @@ material = SubResource( 8 )
 margin_right = 1280.0
 margin_bottom = 720.0
 mouse_filter = 2
-texture = ExtResource( 5 )
+texture = SubResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CommandProcessor" type="Node" parent="."]
-script = ExtResource( 6 )
-
-[node name="RoomManager" type="Node" parent="."]
-script = ExtResource( 8 )
-
-[node name="Menu Principal" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 16.2705
-margin_top = -293.545
-margin_right = 216.271
-margin_bottom = -93.5449
-room_name = "el inicio del juego"
-room_description = "este es el lugar inicial"
-
-[node name="Casa Inicial" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 275.834
-margin_top = -293.378
-margin_right = 475.834
-margin_bottom = -93.3774
-room_name = "una casa extraña"
-room_description = "no sabes donde estas, recien despertaste"
 
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="." method="_on_Input_text_entered"]
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" method="_on_Input_text_entered"]

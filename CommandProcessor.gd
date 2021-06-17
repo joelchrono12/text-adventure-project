@@ -1,14 +1,19 @@
 extends Node
 
-signal changed_location(location)
+#signal changed_location(location)
 
 onready var parent = get_parent()
 func _ready() -> void:
 	pass
 
-var curr_location: Room
+var curr_location: Room = null
+var player = null
 
-func initialize(starting_room) -> String:
+
+
+
+func initialize(starting_room,player) -> String:
+	self.player = player
 	return change_room(starting_room)
 
 
@@ -28,8 +33,12 @@ func process_command(input: String) -> String:
 		"salir":
 			exit()
 			return "Exiting game"
-		"investigar":
-			return check()
+		"tomar":
+			return take(second_word)
+		"soltar":
+			return drop(second_word)
+		"mochila":
+			return inventory()
 		"ayuda":
 			return help()
 		_:
@@ -41,7 +50,8 @@ func go(location):
 		return "Ir a donde?"
 	
 	if curr_location.exits.keys().has(location):
-		var change_response = change_room(curr_location.exits[location])
+		var exit = curr_location.exits[location]
+		var change_response = change_room(exit.get_other_room(curr_location))
 		
 		return PoolStringArray([
 			"Te dirigiste al %s" % location,
@@ -51,14 +61,40 @@ func go(location):
 	else:
 		return "Salida no valida!"
  
-func look():
-	return "You are looking"
+func look() -> String:
+	return curr_location.get_room_description()
 
-func check():
-	pass
+func take(second_word: String) -> String:
+	if curr_location.items.empty():
+		return "No hay nada para tomar"
+	elif second_word == "":
+		return "No decidiste que tomar"
+		
+	for item in curr_location.items:
+		if second_word.to_lower() == item.item_name: 
+			curr_location.remove_item(item) 
+			player.take_item(item)
+			return "Tomaste un(a) " + item.item_name
+	return "No hay ningun objeto asi"
+	
+func drop(second_word: String) -> String:
+	if player.inventory.empty():
+		return "No hay nada para soltar"
+	elif second_word == "":
+		return "No decidiste que soltar"
+		
+	for item in player.inventory:
+		if second_word.to_lower() == item.item_name: 
+			curr_location.add_item(item) 
+			player.drop_item(item)
+			return "Soltaste un(a) " + item.item_name
+	return "No tienes ningun objeto asi"
+
+func inventory() -> String:
+	return player.get_inventory_list()
 
 func help():
-	return "You can use these commands: \nhelp, go [location/direction], look, check, exit"
+	return "Comandos disponibles: \nayuda, \nir [dirección], \nmirar, \ntomar [objeto], \nsoltar [objeto] \nsalir"
 
 
 func exit():
@@ -67,12 +103,4 @@ func exit():
 
 func change_room(new_room: Room) -> String:
 	curr_location = new_room
-	var exits_strings = PoolStringArray(new_room.exits.keys()).join(" ")
-	var messages = PoolStringArray([
-		"Ahora estas en " + new_room.room_name +", es " + new_room.room_description,
-		"Rutas: " + exits_strings
-	]).join("\n")
-	emit_signal("changed_location", new_room.room_name)
-	return messages
-
-#	print(new_room.room_name)
+	return new_room.get_full_description()

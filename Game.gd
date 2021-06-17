@@ -1,8 +1,8 @@
 extends Control
 
 
-const Response = preload("res://OutputResponse.tscn")
-const InputResponse = preload("res://InputResponse.tscn")
+const Response = preload("res://input/OutputResponse.tscn")
+const InputResponse = preload("res://input/InputResponse.tscn")
 
 # Amount of lines to store on history 
 export (int) var max_scrollback := 30
@@ -13,7 +13,7 @@ onready var scroll = $PanelBackground/MarginContainer/Rows/GameInfo/ScrollContai
 onready var scrollbar = scroll.get_v_scrollbar()
 onready var command_proc = $CommandProcessor
 onready var room_man = $RoomManager
-
+onready var player = $Player
 
 var rooms = LoadRooms.load_rooms()
 
@@ -33,9 +33,8 @@ func _ready() -> void:
 	location_label.text = "Locación: ???"
 	max_scroll_lenght = scrollbar.max_value
 	scrollbar.connect("changed",self,"handle_scrollbar_change")
-	command_proc.connect("changed_location",self,"update_location")
 	create_response("Universidad de Guadalajara \nMatematicas Discretas \nEscribe 'ayuda' para ver mas comandos, \nEscribe 'inicia' para empezar")
-	var start_room_response = command_proc.initialize(room_man.get_child(0))
+	var start_room_response = command_proc.initialize(room_man.get_child(0),player)
 	create_response(start_room_response)
 
 
