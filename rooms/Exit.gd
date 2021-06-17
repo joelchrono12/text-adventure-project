@@ -16,3 +16,11 @@ func get_other_room(current_room):
 		printerr("Esta locación no existe")
 		return null
 
+func is_other_room_locked(current_room) -> bool:
+	if current_room == room_1:
+		return is_r2_locked
+	elif current_room == room_2:
+		return is_r1_locked
+	else:
+		printerr("The room is not connected to this exit")
+		return true

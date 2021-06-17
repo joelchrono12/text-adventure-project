@@ -89,28 +89,28 @@ script = ExtResource( 6 )
 script = ExtResource( 8 )
 
 [node name="Sala" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 16.2705
-margin_top = -293.545
-margin_right = 216.271
-margin_bottom = -93.5449
+margin_left = 402.039
+margin_top = -282.866
+margin_right = 602.04
+margin_bottom = -82.8661
 room_name = "una sala"
-room_description = "algo pequeña, un par de muebles alrededor de una vieja tv, no tiene señal"
+room_description = "algo pequeña con solo un par de muebles alrededor de una vieja TV, no tiene señal"
 
 [node name="Patio" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 275.834
-margin_top = -293.378
-margin_right = 475.834
-margin_bottom = -93.3774
+margin_left = 664.272
+margin_top = -284.034
+margin_right = 864.272
+margin_bottom = -84.0335
 room_name = "un patio"
 room_description = "muy descuidado, la hierba ha crecido mucho pero tiene una senda clara"
 
 [node name="Bodega" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 283.843
-margin_top = -548.332
-margin_right = 483.843
-margin_bottom = -348.332
-room_name = "una bodeja"
-room_description = "algo humeda,  un cuarto viejo para almacenar triques,, una luz tenue ilumina el lugar"
+margin_left = 672.281
+margin_top = -538.988
+margin_right = 872.281
+margin_bottom = -338.988
+room_name = "una bodega"
+room_description = "algo humeda, la tenue iluminacion solo revela madera vieja y latas oxidadas. "
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
 anchor_right = 1.0

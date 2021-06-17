@@ -37,6 +37,8 @@ func process_command(input: String) -> String:
 			return take(second_word)
 		"soltar":
 			return drop(second_word)
+		"usar":
+			return use(second_word)
 		"mochila":
 			return inventory()
 		"ayuda":
@@ -51,6 +53,8 @@ func go(location):
 	
 	if curr_location.exits.keys().has(location):
 		var exit = curr_location.exits[location]
+		if exit.is_other_room_locked(curr_location):
+			return "¡No puedes pasar, esta bloqueado!"
 		var change_response = change_room(exit.get_other_room(curr_location))
 		
 		return PoolStringArray([
@@ -88,13 +92,34 @@ func drop(second_word: String) -> String:
 			curr_location.add_item(item) 
 			player.drop_item(item)
 			return "Soltaste un(a) " + item.item_name
-	return "No tienes ningun objeto asi"
+	return "No tienes ese objeto"
+
+func use(second_word: String) -> String:
+	if player.inventory.empty():
+		return "No hay nada para soltar"
+	elif second_word == "":
+		return "No decidiste que soltar"
+		
+	for item in player.inventory:
+		if second_word.to_lower() == item.item_name: 
+			match item.item_type:
+				Types.ItemTypes.KEY:
+					for exit in curr_location.exits.values():
+						if exit.room_2 == item.use_value:
+							exit.is_r2_locked = false
+							player.drop_item(item)
+							return "Has usado %s y te desbloqueaste el camino a %s" %[item.item_name, exit.room_2.room_name ]
+							
+					return "Este objeto no sirve aqui"
+				_:
+					return "Error, no hay item de ese tipo"
+	return "No tienes ese objeto"
 
 func inventory() -> String:
 	return player.get_inventory_list()
 
 func help():
-	return "Comandos disponibles: \nayuda, \nir [dirección], \nmirar, \ntomar [objeto], \nsoltar [objeto] \nsalir"
+	return "Comandos disponibles: \nayuda \nmirar \nir [dirección] \ntomar [objeto] \nsoltar [objeto] \nusar [objeto] \nsalir"
 
 
 func exit():
