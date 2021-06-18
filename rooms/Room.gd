@@ -5,7 +5,7 @@ class_name Room
 
 export (String) var room_name = "Room Name" setget set_room_name
 export (String,MULTILINE) var room_description = "Room Description" setget set_room_desc
-
+export (String,MULTILINE) var room_details = "Room Details"
 func _ready() -> void:
 	print("loading script")
 
@@ -74,6 +74,9 @@ func get_item_description() -> String:
 
 func get_exit_description() -> String:
 	return "Rutas: " + PoolStringArray(exits.keys()).join(" / ")
+	
+func get_room_details() -> String:
+	return room_details
 	
 
 func set_room_desc(new_desc: String):
