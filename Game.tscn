@@ -112,8 +112,8 @@ margin_top = -264.0
 margin_right = 872.0
 margin_bottom = -17.0
 room_name = "un invernadero"
-room_description = "un cuarto con paredes techos transparenter, que permiten el paso del sol muy descuidado, la hierba ha crecido mucho y las plantas estan empezando a secarse."
-room_details = ""
+room_description = "un cuarto con paredes techos transparentes, que permiten el paso del sol muy descuidado, la hierba ha crecido mucho y las plantas estan empezando a secarse."
+room_details = "Hay una entrada a lo que parece ser un pequeño garaje, pero esta cerrada con candado"
 
 [node name="Bodega" parent="RoomManager" instance=ExtResource( 7 )]
 margin_left = 672.0
@@ -140,7 +140,7 @@ margin_right = 456.0
 margin_bottom = -480.0
 room_name = "una habitación pequeña"
 room_description = "un cuarto individual con una sola cama, hay un buró a lado"
-room_details = "En el cajon del buro ves una vieja llave, lo demas son telarañas y recibos de luz vencidos."
+room_details = "En el cajon del buro ves una nota amarillenta con algunos numeros escritos, lo demas son telarañas y recibos de luz vencidos."
 
 [node name="Comedor" parent="RoomManager" instance=ExtResource( 7 )]
 margin_left = 672.0
@@ -156,18 +156,18 @@ margin_left = 880.0
 margin_top = -256.0
 margin_right = 1080.0
 margin_bottom = -56.0
-room_name = "un garaje"
-room_description = "un cuarto pequeño lleno de herramientas, hay una moto vieja que no arranca"
-room_details = "La salida del garaje esta cerrada. Es electrica, pero la consola requiere un codigo para acceder al control"
+room_name = "un bodega"
+room_description = "un cuarto pequeño lleno de herramientas de jardin, algunas macetas y demas"
+room_details = "En la caja de herramientas podria haber algunas cosas utiles"
 
 [node name="Cocina" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 672.0
+margin_left = 680.0
 margin_top = -688.0
-margin_right = 872.0
+margin_right = 880.0
 margin_bottom = -481.0
 room_name = "una cocina"
-room_description = "bastante modesta, no hay muchos trastes y los que hay estan en pedazos. El lavabo gotea, parece que no terminaron de repararlo"
-room_details = "Debajo del lavabo hay algo de herramientas, quiza un plomero las olvido, o quiza no tuvo tiempo de recogerlas"
+room_description = "bastante modesta, no hay muchos trastes y los que hay estan en pedazos. Hay mas cubiertos como en el comedor"
+room_details = "Podria haber algo util entre los cubiertos"
 
 [node name="Bathroom" parent="RoomManager" instance=ExtResource( 7 )]
 margin_left = 256.0
@@ -176,7 +176,7 @@ margin_right = 456.0
 margin_bottom = -272.0
 room_name = "un baño"
 room_description = "incompleto, sin regadera, solo lavabo y taza y un gabinete para productos de higiene personal"
-room_details = "Poniendo mas atencion al gabinete, parece que hay algunas cosas mas.  Una nota con unos numeros escritos."
+room_details = "Poniendo mas atencion al gabinete, parece que hay algunas cosas mas.  Una llave pequeña, podria servir con un candado simple"
 
 [node name="BigBath" parent="RoomManager" instance=ExtResource( 7 )]
 margin_left = 232.0
@@ -203,16 +203,16 @@ margin_right = 664.0
 margin_bottom = -480.0
 room_name = "un pasillo"
 room_description = "algo angosto, hay varios cuadros colgados a lo largo del mismo. "
-room_details = "El pasillo conecta las habitaciones y la sala, parece ser que la habitacion principal esta cerrada por fuera.."
+room_details = "El pasillo conecta las habitaciones y la sala, parece ser que la habitacion principal esta bloqueada con contraseña"
 
 [node name="HabitacionGrande" parent="RoomManager" instance=ExtResource( 7 )]
 margin_left = 464.0
-margin_top = -888.0
+margin_top = -896.0
 margin_right = 664.0
-margin_bottom = -688.0
+margin_bottom = -696.0
 room_name = "la habitacion principal"
-room_description = "el cuarto de los dueños del lugar, a juzgar por el tamaño del lugar. Tiene un ropero enorme"
-room_details = "En el ropero encuentras un gancho de ropa, quiza pueda ser util."
+room_description = "el cuarto de los dueños, a juzgar por el tamaño del lugar"
+room_details = "La cama, matrimonial tiene los resortes y alambres salidos. "
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
 anchor_right = 1.0

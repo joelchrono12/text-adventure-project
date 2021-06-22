@@ -11,10 +11,10 @@ func _ready():
 	knife.initialize("cuchillo", Types.ItemTypes.KEY)
 	note.initialize("nota",Types.ItemTypes.KEY)
 	screwdriver.initialize("desarmador",Types.ItemTypes.KEY)
-	knife.use_value = $BigBath
-	key.use_value = $Bodega
-	screwdriver.use_value = $Garaje
-	note.use_value = $ParkingLot
+	knife.use_value = $Bodega
+	key.use_value = $Garaje
+	screwdriver.use_value = $SecretRoom
+	note.use_value = $HabitacionGrande
 	
 	# Conectamos todos los cuartos de la sala principal	
 	$Sala.connect_exit_unlocked("norte", $Pasillo)
@@ -31,10 +31,12 @@ func _ready():
 	
 	# Conectar habitacion grande con baño
 	$HabitacionGrande.connect_exit_unlocked("oeste",$BigBath)
+	$HabitacionGrande.connect_exit_locked("este",$Bodega)
 	
 	$Comedor.connect_exit_unlocked("norte",$Cocina)
 	$Comedor.connect_exit_unlocked("sur",$Invernadero)
 	$Invernadero.connect_exit_unlocked("este",$Garaje)
 	$Bathroom.add_item(key)
 	$Habitacion.add_item(note)
-	$Cocina.add_item(screwdriver)
+	$Garaje.add_item(screwdriver)
+	$Cocina.add_item(knife)

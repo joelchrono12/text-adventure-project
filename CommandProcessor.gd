@@ -29,7 +29,7 @@ func process_command(input: String) -> String:
 			return look()
 		"salir":
 			exit()
-			return "Exiting game"
+			return "Cerrando juego"
 		"tomar":
 			return take(second_word)
 		"soltar":
