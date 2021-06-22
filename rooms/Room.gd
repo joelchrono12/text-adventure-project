@@ -14,16 +14,17 @@ var items: Array = []
 
 
 func connect_exit_unlocked(direction: String, room):
-	_connect_exits(direction, room, false)
+	_connect_exits(direction, room, false, false)
 
 func connect_exit_locked(direction: String, room):
-	_connect_exits(direction, room, true)
+	_connect_exits(direction, room, true, false)
 
-func _connect_exits(direction: String, room, is_locked: bool):
+func _connect_exits(direction: String, room, is_locked: bool, is_hidden: bool):
 	var exit = Exit.new()
 
 	exit.room_1 = self
 	exit.room_2 = room
+	exit.is_hidden = is_hidden
 	exit.is_r2_locked = is_locked
 	exits[direction] = exit
 	match direction:
@@ -53,7 +54,7 @@ func remove_item(item: Item):
 func get_full_description() -> String:
 	var full_description = PoolStringArray([
 		get_room_description(),
-		get_item_description(),
+#		get_item_description(),
 		get_exit_description()
 	]).join("\n") 
 	return full_description
@@ -76,7 +77,14 @@ func get_exit_description() -> String:
 	return "Rutas: " + PoolStringArray(exits.keys()).join(" / ")
 	
 func get_room_details() -> String:
-	return room_details
+	if room_details.empty():
+		return "No hay nada mas que ver"
+	else:
+		var full_details = PoolStringArray([
+			room_details,
+			get_item_description(),
+		]).join("\n") 
+		return full_details
 	
 
 func set_room_desc(new_desc: String):

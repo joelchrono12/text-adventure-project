@@ -7,13 +7,15 @@ var is_r1_locked := false
 var room_2 = null
 var is_r2_locked := false
 
+var is_hidden:= false
+
 func get_other_room(current_room):
 	if current_room == room_1:
 		return room_2
 	elif current_room == room_2:
 		return room_1
 	else:
-		printerr("Esta locación no existe")
+		printerr("This location does not exist")
 		return null
 
 func is_other_room_locked(current_room) -> bool:

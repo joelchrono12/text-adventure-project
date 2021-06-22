@@ -1,16 +1,13 @@
 extends Node
 
 #signal changed_location(location)
-
+export (String,MULTILINE) var help_message = ""
 onready var parent = get_parent()
 func _ready() -> void:
 	pass
 
-var curr_location: Room = null
+var curr_location = null
 var player = null
-
-
-
 
 func initialize(starting_room,player) -> String:
 	self.player = player
@@ -50,23 +47,23 @@ func process_command(input: String) -> String:
 func go(location):
 	if location == "":
 		return "Ir a donde?"
-	
+
 	if curr_location.exits.keys().has(location):
 		var exit = curr_location.exits[location]
 		if exit.is_other_room_locked(curr_location):
-			return "¡No puedes pasar, esta bloqueado!"
+			return "¡No puedes pasar por aqui!"
 		var change_response = change_room(exit.get_other_room(curr_location))
-		
+
 		return PoolStringArray([
 			"Te dirigiste al %s" % location,
 			change_response
 		]).join("\n")
 
 	else:
-		return "Salida no valida!"
+		return "Salida no valida, elige una direccion cardinal"
  
 func look() -> String:
-	return curr_location.get_room_description()
+	return curr_location.get_room_details()
 
 func take(second_word: String) -> String:
 	if curr_location.items.empty():
@@ -108,7 +105,7 @@ func use(second_word: String) -> String:
 						if exit.room_2 == item.use_value:
 							exit.is_r2_locked = false
 							player.drop_item(item)
-							return "Has usado %s y te desbloqueaste el camino a %s" %[item.item_name, exit.room_2.room_name ]
+							return "Has usado %s y desbloqueaste el camino a %s" %[item.item_name, exit.room_2.room_name ]
 							
 					return "Este objeto no sirve aqui"
 				_:
@@ -119,13 +116,13 @@ func inventory() -> String:
 	return player.get_inventory_list()
 
 func help():
-	return "Comandos disponibles: \nayuda \nmirar \nir [dirección] \ntomar [objeto] \nsoltar [objeto] \nusar [objeto] \nsalir"
+	return help_message
 
 
 func exit():
 	yield(get_tree().create_timer(1),"timeout")
 	get_tree().quit()	
 
-func change_room(new_room: Room) -> String:
+func change_room(new_room) -> String:
 	curr_location = new_room
 	return new_room.get_full_description()

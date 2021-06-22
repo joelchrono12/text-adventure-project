@@ -10,7 +10,6 @@ func drop_item(item: Item):
 func get_inventory_list() -> String:
 	if inventory.size() == 0:
 		return "No hay objetos en tu mochila"
-		
 	var inventory_string = ""
 	for item in inventory:
 		inventory_string += item.item_name + " "

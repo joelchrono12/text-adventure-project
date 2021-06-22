@@ -36,7 +36,7 @@ func process_command(input: String) -> String:
 		"ayuda":
 			return help()
 		_:
-			return "No puedes usar este comando en el menu principal"
+			return "Comando inválido / No disponible en el menu principal"
 
 
 func go(location):
@@ -60,14 +60,17 @@ func go(location):
 func look() -> String:
 	if (curr_location.room_name) == "la documentacion":
 		OS.shell_open("https://github.com/joelchrono12/text-adventure-project")
-		return "abriendo enlace externo"
-	return curr_location.get_room_details()
+		return "Abriendo enlace externo"
+	else:
+		return curr_location.get_room_details()
+
+
 func play() -> void:
 	yield(get_tree().create_timer(1),"timeout")
 	get_tree().change_scene("res://Game.tscn")
 
 func help():
-	return "Comandos disponibles: \nayuda \nmirar \nir [dirección] \ntomar [objeto] \nsoltar [objeto] \nusar [objeto] \nsalir"
+	return "Comandos disponibles:\niniciar \nayuda \nmirar \nir [dirección]  \nsalir"
 
 
 func exit():

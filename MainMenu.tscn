@@ -194,21 +194,22 @@ script = ExtResource( 7 )
 script = ExtResource( 4 )
 
 [node name="MenuPrincipal" parent="MenuRoomManager" instance=ExtResource( 5 )]
-margin_left = 397.661
-margin_top = -421.847
-margin_right = 597.662
-margin_bottom = -85.8475
+margin_left = 407.005
+margin_top = -427.692
+margin_right = 607.006
+margin_bottom = -11.6915
 room_name = "el menu principal"
 room_description = "la seccion inicial donde puedes elegir la ruta que deseas seguir. Al oeste, la documentación, al este, los creditos. 
-'mirar' puede revelar mas detalles de un cuarto, pero no siempre hay mucho que ver'"
-room_details = "Escribe 'ayuda' para ver los comandos disponibles
-Escribe 'iniciar' cuando te sientas comodo con su uso"
+Escribe 'ayuda' para ver los comandos disponibles
+Escribe 'iniciar' cuando te sientas comodo con su uso
+No todos los comandos estan disponibles en el menu principal"
+room_details = ""
 
 [node name="Creditos" parent="MenuRoomManager" instance=ExtResource( 5 )]
-margin_left = 658.734
-margin_top = -343.954
-margin_right = 858.734
-margin_bottom = -52.9543
+margin_left = 642.716
+margin_top = -338.615
+margin_right = 842.716
+margin_bottom = -47.615
 room_name = "los creditos"
 room_description = "la seccion de creditos. Escribe 'mirar' para ver mas detalles, no todos los cuartos tiene tanto que ver
 "
@@ -217,15 +218,15 @@ Por Joel G. (joelchrono12)
 Tipografia: Mononoki, licenciada bajo SIL Open Font License 1.1"
 
 [node name="Documentacion" parent="MenuRoomManager" instance=ExtResource( 5 )]
-margin_left = 168.734
-margin_top = -341.954
-margin_right = 368.734
-margin_bottom = -27.9543
+margin_left = 171.404
+margin_top = -363.311
+margin_right = 371.404
+margin_bottom = -49.3117
 room_name = "la documentacion"
 room_description = "la documentacion donde podras ver mas detalles del juego. 
 Escribe 'mirar' para abrir la documentacion y codigo fuente en tu navegador"
-room_details = "Abriendo enlace externo
-"
+room_details = "
+Abriendo enlace externo"
 
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="." method="_on_Input_text_entered"]
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" method="_on_Input_text_entered"]

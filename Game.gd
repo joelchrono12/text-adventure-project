@@ -19,7 +19,6 @@ var rooms = LoadRooms.load_rooms()
 
 
 # I dont know what is wrong with this code 
-
 var room_descriptions = {
 	lab = "You are in some kind of laboratory facility, some red lights are flashing, your head hurts. There is a medicine in the floor, a door leads to a corridor",
 	corridor = "There is a big door in front of you at the end of the corridor, a few rats are running away from you, hiding into a trash can",
@@ -28,6 +27,7 @@ var room_descriptions = {
 
 var curr_location = null
 var max_scroll_lenght := 0
+
 
 func _ready() -> void:
 	location_label.text = "Locación: ???"
@@ -60,8 +60,6 @@ func _on_Input_text_entered(new_text: String) -> void:
 	input_response.set_text(new_text, response)
 
 
-
-
 func add_response_to_game(response: Control):
 	history_rows.add_child(response)
 	# Call function to limit the scrollback history size
@@ -77,6 +75,7 @@ func limit_scrollback():
 		for i in range(rows_to_forget):
 			history_rows.get_child(i).queue_free()
 			pass
+
 
 func handle_scrollbar_change():
 	if max_scroll_lenght != scrollbar.max_value:
