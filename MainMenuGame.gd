@@ -7,7 +7,7 @@ const InputResponse = preload("res://input/InputResponse.tscn")
 # Amount of lines to store on history 
 export (int) var max_scrollback := 30
 
-onready var location_label = $PanelBackground/MarginContainer/Rows/GUI/GUI/Location
+#onready var location_label = $PanelBackground/MarginContainer/Rows/GUI/GUI/Location
 onready var history_rows = $PanelBackground/MarginContainer/Rows/GameInfo/ScrollContainer/HistoryRows
 onready var scroll = $PanelBackground/MarginContainer/Rows/GameInfo/ScrollContainer
 onready var scrollbar = scroll.get_v_scrollbar()
@@ -21,16 +21,16 @@ var curr_location = null
 var max_scroll_lenght := 0
 
 func _ready() -> void:
-	location_label.text = "Locación: ???"
+#	location_label.text = "Locación: ???"
 	max_scroll_lenght = scrollbar.max_value
 	scrollbar.connect("changed",self,"handle_scrollbar_change")
-	create_response("Universidad de Guadalajara \nMatematicas Discretas \n-------------------------")
+	create_response("Universidad de Guadalajara \nMatematicas Discretas \nArresto Domiciliario??? \n------------------------")
 	var start_room_response = command_proc.initialize(room_man.get_child(0),player)
 	create_response(start_room_response)
 
 
 func update_location(location):
-	location_label.text = "Locación: " + location
+#	location_label.text = "Locación: " + location
 	print("changed locations")
 
 

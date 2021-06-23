@@ -78,6 +78,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+starting_prompt = "Arresto domiciliario???
+------------------
+Despiertas con algo de dolor de cabeza, tras unos segundos recuperas la razon, ¿en donde estas? ¿Como llegaste aqui?
+"
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -98,121 +102,142 @@ salir - cierra la ventana y termina el juego"
 script = ExtResource( 8 )
 
 [node name="Sala" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 464.0
-margin_top = -472.0
-margin_right = 664.001
-margin_bottom = -272.0
-room_name = "la sala"
+margin_left = 456.0
+margin_top = -1072.0
+margin_right = 656.001
+margin_bottom = -872.0
+room_name = "una sala"
 room_description = "algo pequeña con solo un par de muebles alrededor de una vieja TV, no tiene señal."
-room_details = "Puedes ver la puerta principal detras de ti, es enorme y pesada, no la puedes abrir, ¿podras hallar la forma de salir?"
+room_details = "El lugar parece abandonado. Puedes ver la puerta principal detras de ti, es enorme y pesada, no la puedes abrir, ¿podras hallar la forma de salir? ¿Como llegaste aqui en primer lugar?"
 
 [node name="Invernadero" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 672.0
-margin_top = -264.0
-margin_right = 872.0
-margin_bottom = -17.0
+margin_left = 664.0
+margin_top = -864.0
+margin_right = 864.0
+margin_bottom = -617.0
 room_name = "un invernadero"
-room_description = "un cuarto con paredes techos transparentes, que permiten el paso del sol muy descuidado, la hierba ha crecido mucho y las plantas estan empezando a secarse."
-room_details = "Hay una entrada a lo que parece ser un pequeño garaje, pero esta cerrada con candado"
+room_description = "un cuarto con paredes y techos transparentes, que permiten el paso del sol muy descuidado, la hierba ha crecido mucho y las plantas estan empezando a secarse."
+room_details = "Hay una entrada a lo que parece ser una pequeña bodega, pero esta cerrada con candado"
 
-[node name="Bodega" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 672.0
-margin_top = -896.0
-margin_right = 872.0
-margin_bottom = -696.0
-room_name = "una bodega"
-room_description = "la tenue iluminacion solo revela algo de ropa vieja y algo de equipo de jardineria."
+[node name="Ropero" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 664.0
+margin_top = -1496.0
+margin_right = 864.0
+margin_bottom = -1296.0
+room_name = "un ropero"
+room_description = "muy amplio, hay algo de ropa vieja y algunas cajas de zapatos vacias"
 room_details = "Detras del monton de ropa hay una ventila por la que puedes ir gateando, pero esta atornillada a la pared."
 
 [node name="SecretRoom" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 672.0
-margin_top = -1104.0
-margin_right = 872.0
-margin_bottom = -904.0
+margin_left = 568.0
+margin_top = -1704.0
+margin_right = 768.0
+margin_bottom = -1504.0
 room_name = "un cuarto secreto!"
-room_description = "otro misterio, parece haber equipo de laboratorio y contenedores de diversos quimicos"
-room_details = "Detras del monton de ropa hay una ventila por la que puedes ir gateando, pero esta atornillada a la pared."
+room_description = "otro misterio, parece un equipo de laboratorio y contenedores de diversos quimicos"
+room_details = "Uno de los contenedores contiene algo curioso, una palanca"
+
+[node name="PasilloSecreto" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 360.0
+margin_top = -1704.0
+margin_right = 560.0
+margin_bottom = -1504.0
+room_name = "un pasillo secreto!"
+room_description = "muy largo y sucio, hay una gotera que ha dejado un charco creciendo gota a gota"
+room_details = "El pasillo parece estar algo humedo, me pregunto a donde llevara"
 
 [node name="Habitacion" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 256.0
-margin_top = -680.0
-margin_right = 456.0
-margin_bottom = -480.0
+margin_left = 248.0
+margin_top = -1280.0
+margin_right = 448.0
+margin_bottom = -1080.0
 room_name = "una habitación pequeña"
 room_description = "un cuarto individual con una sola cama, hay un buró a lado"
 room_details = "En el cajon del buro ves una nota amarillenta con algunos numeros escritos, lo demas son telarañas y recibos de luz vencidos."
 
 [node name="Comedor" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 672.0
-margin_top = -472.0
-margin_right = 872.0
-margin_bottom = -272.0
+margin_left = 664.0
+margin_top = -1072.0
+margin_right = 864.0
+margin_bottom = -872.0
 room_name = "un comedor"
-room_description = "un area amplea, la mesa es enorme, parece que muchas personas vivieron aqui"
+room_description = "un area amplia, la mesa es enorme, parece que muchas personas vivieron aqui"
 room_details = "Hay comida servida, pero esta fria y mosqueada, los cubiertos son finos, aun no se oxidan"
 
-[node name="Garaje" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 880.0
-margin_top = -256.0
-margin_right = 1080.0
-margin_bottom = -56.0
+[node name="Bodega" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 872.0
+margin_top = -856.0
+margin_right = 1072.0
+margin_bottom = -656.0
 room_name = "un bodega"
 room_description = "un cuarto pequeño lleno de herramientas de jardin, algunas macetas y demas"
 room_details = "En la caja de herramientas podria haber algunas cosas utiles"
 
 [node name="Cocina" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 680.0
-margin_top = -688.0
-margin_right = 880.0
-margin_bottom = -481.0
+margin_left = 664.0
+margin_top = -1287.0
+margin_right = 864.0
+margin_bottom = -1080.0
 room_name = "una cocina"
 room_description = "bastante modesta, no hay muchos trastes y los que hay estan en pedazos. Hay mas cubiertos como en el comedor"
 room_details = "Podria haber algo util entre los cubiertos"
 
 [node name="Bathroom" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 256.0
-margin_top = -472.0
-margin_right = 456.0
-margin_bottom = -272.0
+margin_left = 248.0
+margin_top = -1072.0
+margin_right = 448.0
+margin_bottom = -872.0
 room_name = "un baño"
-room_description = "incompleto, sin regadera, solo lavabo y taza y un gabinete para productos de higiene personal"
+room_description = "incompleto, sin regadera, solo lavabo, taza y un gabinete para productos de higiene personal"
 room_details = "Poniendo mas atencion al gabinete, parece que hay algunas cosas mas.  Una llave pequeña, podria servir con un candado simple"
 
 [node name="BigBath" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 232.0
-margin_top = -888.0
-margin_right = 456.0
-margin_bottom = -688.0
+margin_left = 224.0
+margin_top = -1496.0
+margin_right = 448.0
+margin_bottom = -1288.0
 room_name = "un baño completo"
 room_description = "mas grande, tiene una tina gigantesca y la llave esta abierta, un patito de goma flota en el agua sucia."
-room_details = "Cierras la llave, hay algo hundido al fondo de la tina. "
+room_details = "Cierras el grifo, hay algo hundido al fondo de la tina.  Parece la llave principal"
 
 [node name="ParkingLot" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 464.0
-margin_top = -264.0
-margin_right = 664.0
-margin_bottom = -48.0
+margin_left = 456.0
+margin_top = -864.0
+margin_right = 656.0
+margin_bottom = -568.0
 room_name = "la entrada principal"
-room_description = "enorme, podrian caber un par de coches aqui, hay plantas alrededor, igual de descuidadas que en el invernadero, puedes ver una puerta al norte"
-room_details = "Estas fuera de la casa!"
+room_description = "la entrada de esta casa, ¡al fin eres libre! Lo mejor sera huir de aqui y buscar ayuda en algun lado. 
+Aunque claro, podrias regresar y perder el tiempo ahi dentro...
+Ve al sur para terminar"
+room_details = ""
+
+[node name="Fin" parent="RoomManager" instance=ExtResource( 7 )]
+margin_left = 456.0
+margin_top = -544.0
+margin_right = 656.0
+margin_bottom = -344.0
+room_name = "el fin"
+room_description = "Muchas gracias por jugar, volviendo al menu principal"
+room_details = ""
 
 [node name="Pasillo" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 464.0
-margin_top = -680.0
-margin_right = 664.0
-margin_bottom = -480.0
+margin_left = 456.0
+margin_top = -1280.0
+margin_right = 656.0
+margin_bottom = -1080.0
 room_name = "un pasillo"
 room_description = "algo angosto, hay varios cuadros colgados a lo largo del mismo. "
-room_details = "El pasillo conecta las habitaciones y la sala, parece ser que la habitacion principal esta bloqueada con contraseña"
+room_details = "El pasillo conecta las habitaciones y la sala, parece ser que la habitacion principal tiene un seguro con contraseña"
 
 [node name="HabitacionGrande" parent="RoomManager" instance=ExtResource( 7 )]
-margin_left = 464.0
-margin_top = -896.0
-margin_right = 664.0
-margin_bottom = -696.0
+margin_left = 456.0
+margin_top = -1496.0
+margin_right = 656.0
+margin_bottom = -1288.0
 room_name = "la habitacion principal"
-room_description = "el cuarto de los dueños, a juzgar por el tamaño del lugar"
-room_details = "La cama, matrimonial tiene los resortes y alambres salidos. "
+room_description = "el cuarto de los dueños, a juzgar por el tamaño del lugar y la cama matrimonial"
+room_details = "Al oeste esta la puerta cerrada de lo que parece ser un enorme ropero, tiene llave, pero seguro es facil forzarlo con algo puntiagudo. 
+La otra entrada esta bloqueada por dentro "
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
 anchor_right = 1.0
@@ -253,13 +278,6 @@ margin_bottom = 28.0
 custom_fonts/font = ExtResource( 4 )
 text = "Comandos:  mirar |  ir |  usar |  tomar |  soltar | mochila"
 align = 1
-
-[node name="Location" type="Label" parent="PanelBackground/MarginContainer/Rows/GUI/GUI"]
-margin_left = 887.0
-margin_right = 1044.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 4 )
-text = " Locación: "
 
 [node name="GameInfo" type="PanelContainer" parent="PanelBackground/MarginContainer/Rows"]
 margin_top = 48.0
@@ -307,7 +325,7 @@ custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 2 )
 max_length = 70
-placeholder_text = "What are you going to do?"
+placeholder_text = "¿Que vas a hacer?"
 caret_blink = true
 caret_blink_speed = 0.5
 script = ExtResource( 1 )

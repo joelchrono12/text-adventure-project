@@ -59,7 +59,7 @@ func go(location):
  
 func look() -> String:
 	if (curr_location.room_name) == "la documentacion":
-		OS.shell_open("https://github.com/joelchrono12/text-adventure-project")
+		OS.shell_open("./resumen.html")
 		return "Abriendo enlace externo"
 	else:
 		return curr_location.get_room_details()

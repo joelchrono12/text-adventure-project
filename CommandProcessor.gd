@@ -124,5 +124,7 @@ func exit():
 	get_tree().quit()	
 
 func change_room(new_room) -> String:
+	if new_room.room_name == "el fin":
+		get_tree().change_scene("res://MainMenu.tscn")
 	curr_location = new_room
 	return new_room.get_full_description()

@@ -3,11 +3,11 @@ extends Control
 
 const Response = preload("res://input/OutputResponse.tscn")
 const InputResponse = preload("res://input/InputResponse.tscn")
-
+export (String,MULTILINE) var starting_prompt = ""
 # Amount of lines to store on history 
 export (int) var max_scrollback := 30
 
-onready var location_label = $PanelBackground/MarginContainer/Rows/GUI/GUI/Location
+#onready var location_label = $PanelBackground/MarginContainer/Rows/GUI/GUI/Location
 onready var history_rows = $PanelBackground/MarginContainer/Rows/GameInfo/ScrollContainer/HistoryRows
 onready var scroll = $PanelBackground/MarginContainer/Rows/GameInfo/ScrollContainer
 onready var scrollbar = scroll.get_v_scrollbar()
@@ -15,32 +15,24 @@ onready var command_proc = $CommandProcessor
 onready var room_man = $RoomManager
 onready var player = $Player
 
-var rooms = LoadRooms.load_rooms()
-
-
-# I dont know what is wrong with this code 
-var room_descriptions = {
-	lab = "You are in some kind of laboratory facility, some red lights are flashing, your head hurts. There is a medicine in the floor, a door leads to a corridor",
-	corridor = "There is a big door in front of you at the end of the corridor, a few rats are running away from you, hiding into a trash can",
-	room = "There is an old bed, an aluminum plate and some fragile medical equipment"
-}
+#var rooms = LoadRooms.load_rooms()
 
 var curr_location = null
 var max_scroll_lenght := 0
 
 
 func _ready() -> void:
-	location_label.text = "Locación: ???"
+#	location_label.text = "Locación: ???"
 	max_scroll_lenght = scrollbar.max_value
 	scrollbar.connect("changed",self,"handle_scrollbar_change")
-	create_response("Universidad de Guadalajara \nMatematicas Discretas \nEscribe 'ayuda' para ver mas comandos \n-------------")
+	create_response(starting_prompt)
 	var start_room_response = command_proc.initialize(room_man.get_child(0),player)
 	create_response(start_room_response)
 
 
-func update_location(location):
-	location_label.text = "Locación: " + location
-	print("changed locations")
+#func update_location(location):
+#	location_label.text = "Locación: " + location
+#	print("changed locations")
 
 
 func create_response(response_text: String):

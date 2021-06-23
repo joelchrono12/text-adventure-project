@@ -118,13 +118,6 @@ custom_fonts/font = ExtResource( 2 )
 text = "Comandos:  mirar |  ir |  ayuda |"
 align = 1
 
-[node name="Location" type="Label" parent="PanelBackground/MarginContainer/Rows/GUI/GUI"]
-margin_left = 521.0
-margin_right = 678.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 2 )
-text = " Locación: "
-
 [node name="GameInfo" type="PanelContainer" parent="PanelBackground/MarginContainer/Rows"]
 margin_top = 48.0
 margin_right = 1240.0
@@ -199,34 +192,23 @@ margin_top = -427.692
 margin_right = 607.006
 margin_bottom = -11.6915
 room_name = "el menu principal"
-room_description = "la seccion inicial donde puedes elegir la ruta que deseas seguir. Al oeste, la documentación, al este, los creditos. 
+room_description = "la seccion inicial donde puedes elegir la ruta que deseas seguir. Ve al este para ver los creditos. 
 Escribe 'ayuda' para ver los comandos disponibles
 Escribe 'iniciar' cuando te sientas comodo con su uso
 No todos los comandos estan disponibles en el menu principal"
 room_details = ""
 
 [node name="Creditos" parent="MenuRoomManager" instance=ExtResource( 5 )]
-margin_left = 642.716
+margin_left = 641.381
 margin_top = -338.615
-margin_right = 842.716
+margin_right = 841.381
 margin_bottom = -47.615
 room_name = "los creditos"
 room_description = "la seccion de creditos. Escribe 'mirar' para ver mas detalles, no todos los cuartos tiene tanto que ver
 "
-room_details = "Este juego fue hecho con Godot Engine
+room_details = "Arresto Domiciliario fue hecho con Godot Engine
 Por Joel G. (joelchrono12)
 Tipografia: Mononoki, licenciada bajo SIL Open Font License 1.1"
-
-[node name="Documentacion" parent="MenuRoomManager" instance=ExtResource( 5 )]
-margin_left = 171.404
-margin_top = -363.311
-margin_right = 371.404
-margin_bottom = -49.3117
-room_name = "la documentacion"
-room_description = "la documentacion donde podras ver mas detalles del juego. 
-Escribe 'mirar' para abrir la documentacion y codigo fuente en tu navegador"
-room_details = "
-Abriendo enlace externo"
 
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="." method="_on_Input_text_entered"]
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" method="_on_Input_text_entered"]
