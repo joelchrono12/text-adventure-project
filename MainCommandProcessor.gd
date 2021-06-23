@@ -58,11 +58,9 @@ func go(location):
 		return "Salida no valida!"
  
 func look() -> String:
-	if (curr_location.room_name) == "la documentacion":
-		OS.shell_open("./resumen.html")
-		return "Abriendo enlace externo"
-	else:
-		return curr_location.get_room_details()
+	if (curr_location.room_name) == "los creditos":
+		OS.shell_open("https://github.com/joelchrono12/text-adventure-project")
+	return curr_location.get_room_details()
 
 
 func play() -> void:

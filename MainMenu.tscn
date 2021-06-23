@@ -208,7 +208,8 @@ room_description = "la seccion de creditos. Escribe 'mirar' para ver mas detalle
 "
 room_details = "Arresto Domiciliario fue hecho con Godot Engine
 Por Joel G. (joelchrono12)
-Tipografia: Mononoki, licenciada bajo SIL Open Font License 1.1"
+Tipografia: Mononoki, licenciada bajo SIL Open Font License 1.1
+Abriendo codigo fuente en navegador"
 
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="." method="_on_Input_text_entered"]
 [connection signal="text_entered" from="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" to="PanelBackground/MarginContainer/Rows/InputArea/Columns/Input" method="_on_Input_text_entered"]
