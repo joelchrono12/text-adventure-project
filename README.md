@@ -101,10 +101,14 @@ Sin embargo, de forma resumida es lo siguiente:
 1. Tener Godot Engine instalado
 2. Abrir el proyecto desde Godot
 3. Descargar las plantillas de exportación
+
 ![](./markdown_assets/export_template_menu.png)
+
 4. Una vez descargadas, ir a Proyecto/Exportar
 5. Seleccionar la plataforma deseada y dar clic a Exportar Proyecto
+
 ![](./markdown_assets/fileexport.png)
+
 6. Seleccionar el directorio donde guardar el archivo y guárdelo
 
 ## Como correr el juego
