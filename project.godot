@@ -32,7 +32,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Arresto Domicialrio (Juego de texto)"
+config/name="Arresto Domicilario (Juego de texto)"
 run/main_scene="res://MainMenu.tscn"
 
 [autoload]
