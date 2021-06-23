@@ -1,6 +1,6 @@
 extends Node
 var inventory: Array = []
-
+# Add item to player inventory
 func take_item(item: Item):
 	inventory.append(item)
 	
