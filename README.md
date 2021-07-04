@@ -166,3 +166,5 @@ ubicaciones, los objetos en ellas y los requerimientos para accederla, también
 es una guía rápida de la ruta a seguir
 
 ![](./markdown_assets/gamemap.png)
+
+ Muchas gracias por jugar!
