@@ -1,6 +1,5 @@
 extends Control
 
-
 const Response = preload("res://input/OutputResponse.tscn")
 const InputResponse = preload("res://input/InputResponse.tscn")
 
@@ -39,7 +38,6 @@ func create_response(response_text: String):
 	response.bbcode_text = response_text
 	history_rows.add_child(response)
 	add_response_to_game(response)
-#	response.animate_text()
 
 
 func _on_Input_text_entered(new_text: String) -> void:
@@ -51,14 +49,11 @@ func _on_Input_text_entered(new_text: String) -> void:
 	input_response.set_text(new_text, response)
 
 
-
-
 func add_response_to_game(response: Control):
 	history_rows.add_child(response)
 	# Call function to limit the scrollback history size
 	limit_scrollback()
 	
-
 
 func limit_scrollback():
 	if history_rows.get_child_count() > max_scrollback:
@@ -68,6 +63,7 @@ func limit_scrollback():
 		for i in range(rows_to_forget):
 			history_rows.get_child(i).queue_free()
 			pass
+
 
 func handle_scrollbar_change():
 	if max_scroll_lenght != scrollbar.max_value:
